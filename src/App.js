@@ -1,28 +1,27 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import { observer } from "mobx-react";
+import { Button } from "./components/design";
+import { Container, Heading, Actions } from "./styles/App";
 
 class App extends Component {
   render() {
+    const { counter } = this.props;
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <Container>
+        <Heading>Counter : {counter.count}</Heading>
+        <Actions>
+          <Button onClick={() => counter.increment()} shape="circle">
+            +
+          </Button>
+        </Actions>
+        <Actions>
+          <Button onClick={() => counter.decrement()} shape="circle">
+            -
+          </Button>
+        </Actions>
+      </Container>
     );
   }
 }
 
-export default App;
+export default observer(App);
