@@ -1,5 +1,5 @@
 import { extendObservable } from "mobx";
-class Counter {
+class CounterModel {
   constructor() {
     extendObservable(this, {
       count: 0,
@@ -14,4 +14,4 @@ class Counter {
   }
 }
 
-export default Counter;
+export default CounterModel;

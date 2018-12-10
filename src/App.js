@@ -1,27 +1,26 @@
-import React, { Component } from "react";
-import { observer } from "mobx-react";
-import { Button } from "./components/design";
-import { Container, Heading, Actions } from "./styles/App";
+import React from "react";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import Home from "./routes/Home";
+import Counter from "./routes/Counter";
 
-class App extends Component {
-  render() {
-    const { counter } = this.props;
-    return (
-      <Container>
-        <Heading>Counter : {counter.count}</Heading>
-        <Actions>
-          <Button onClick={() => counter.increment()} shape="circle">
-            +
-          </Button>
-        </Actions>
-        <Actions>
-          <Button onClick={() => counter.decrement()} shape="circle">
-            -
-          </Button>
-        </Actions>
-      </Container>
-    );
-  }
-}
+const AppRouter = () => (
+  <Router>
+    <div>
+      <nav>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/counter/">Counter</Link>
+          </li>
+        </ul>
+      </nav>
 
-export default observer(App);
+      <Route path="/" exact component={Home} />
+      <Route path="/counter/" component={Counter} />
+    </div>
+  </Router>
+);
+
+export default AppRouter;
