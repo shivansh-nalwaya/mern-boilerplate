@@ -5,9 +5,10 @@ import { ApolloProvider } from "react-apollo";
 import Home from "./routes/Home";
 import Counter from "./routes/Counter";
 import Backend from "./routes/Backend";
+import { GraphQLEndpoint } from "./Constants";
 
 const client = new ApolloClient({
-  uri: "[INSERT GRAPHQL ENDPOINT HERE]"
+  uri: GraphQLEndpoint
 });
 
 const AppRouter = () => (

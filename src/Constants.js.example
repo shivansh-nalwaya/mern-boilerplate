@@ -1,0 +1,1 @@
+export const GraphQLEndpoint = "[INSERT GRAPHQL ENDPOINT HERE]";
