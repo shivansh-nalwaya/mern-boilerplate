@@ -1,15 +1,6 @@
 import React, { Component } from "react";
 import { graphql } from "react-apollo";
-import gql from "graphql-tag";
-
-const query = gql`
-  {
-    allClients {
-      id
-      name
-    }
-  }
-`;
+import { getAllClients } from "../queries/Clients";
 
 class Backend extends Component {
   render() {
@@ -25,4 +16,4 @@ class Backend extends Component {
   }
 }
 
-export default graphql(query)(Backend);
+export default graphql(getAllClients)(Backend);
