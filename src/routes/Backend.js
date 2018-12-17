@@ -10,7 +10,7 @@ class Backend extends Component {
 
     return data.allClients.map(currentClient => (
       <ol>
-        <li>{`${currentClient.name}`}</li>
+        <li>{currentClient.name}</li>
       </ol>
     ));
   }
