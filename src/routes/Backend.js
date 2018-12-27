@@ -5,14 +5,17 @@ import { getAllClients } from "../queries/Clients";
 class Backend extends Component {
   render() {
     let { loading, error, data } = this.props;
-    if (loading || !data.allClients) return <p>Loading...</p>;
-    if (error) return <p>Error :{error}</p>;
+    if (loading) return <p>Loading...</p>;
+    else if (error) return <p>Error :{error}</p>;
+    else if (!data.allClients) return <p>Fetching...</p>;
 
-    return data.allClients.map(currentClient => (
+    return (
       <ol>
-        <li>{currentClient.name}</li>
+        {data.allClients.map(currentClient => (
+          <li>{currentClient.name}</li>
+        ))}
       </ol>
-    ));
+    );
   }
 }
 
