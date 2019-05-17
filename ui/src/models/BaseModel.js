@@ -9,11 +9,12 @@ export const isLocalhost = Boolean(
 );
 
 export const baseApi = isLocalhost
-  ? "http://localhost:3001/api"
+  ? "http://localhost:3002/api"
   : `${window.location.origin}/api`;
 
 export default class BaseModel {
   constructor(api) {
+    this.baseApi = baseApi;
     this.currentUserToken = (
       JSON.parse(localStorage.getItem("currentUser")) || {}
     ).token;
