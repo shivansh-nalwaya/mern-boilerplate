@@ -17,7 +17,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(logger("dev"));
 app.use(cors());
-app.use("/images", express.static("./uploads"));
 
 if (process.env.NODE_ENV === "production")
   app.use("/", express.static("../ui/build"));
